@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -131,4 +132,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import os
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
+
+import os
+
+# The URL to use when referring to static files
+STATIC_URL = '/static/'
+
+# The absolute path to the directory where collectstatic will collect static files for deployment
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# This enables WhiteNoise to compress and cache your files (good for performance)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
