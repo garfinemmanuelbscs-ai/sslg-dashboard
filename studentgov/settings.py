@@ -128,4 +128,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import os
-SECRET_KEY = os.environ.get("b9149a7c4b0f108bd2d16a7b64d5dcb6")
+SECRET_KEY = "b9149a7c4b0f108bd2d16a7b6445dcb6"
