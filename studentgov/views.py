@@ -4,6 +4,12 @@ from inventory.models import Item
 from attendance.models import AttendanceRecord
 from events.models import Event
 from django.db.models import Sum
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+
+@login_required(login_url='/login/')
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
 def dashboard(request):
     # Finance summary
