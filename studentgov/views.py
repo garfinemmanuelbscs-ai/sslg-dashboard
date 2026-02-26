@@ -4,10 +4,7 @@ from inventory.models import Item
 from attendance.models import AttendanceRecord
 from events.models import Event
 from django.db.models import Sum
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
 
-@login_required(login_url='/login/')
 def dashboard(request):
     # Finance summary
     income = Transaction.objects.filter(type='income').aggregate(Sum('amount'))['amount__sum'] or 0
