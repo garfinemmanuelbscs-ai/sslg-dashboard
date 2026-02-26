@@ -9,9 +9,6 @@ from django.shortcuts import render
 
 @login_required(login_url='/login/')
 def dashboard(request):
-    return render(request, 'dashboard.html')
-
-def dashboard(request):
     # Finance summary
     income = Transaction.objects.filter(type='income').aggregate(Sum('amount'))['amount__sum'] or 0
     expense = Transaction.objects.filter(type='expense').aggregate(Sum('amount'))['amount__sum'] or 0
